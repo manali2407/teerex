@@ -1,0 +1,54 @@
+<p>product works!</p>
+<div class="row">
+    <div class="col-3">
+        {{colorSerach.$index}}
+        @for (item of colorArray; track $index) {
+            | {{item.checked}} |  {{item.color}}           
+              <input 
+            type="checkbox"
+             [value]="item.color" 
+             [(ngModel)]="item.checked"
+             (click)="setCheckbox(item, $index)"
+            >
+        }
+        <br>
+        @for (item of genderArray; track $index) {
+             | {{item.checked}}  | {{item.gender}} 
+            <input
+            type="checkbox"
+             [value]="item" 
+             [(ngModel)]="item.checked"
+             (click)="setCheckbox(item, $index)"
+            >
+        }   <br>
+        @for (item of typeArray; track $index) {
+             | {{item.checked}}  | {{item.type}} 
+            <input
+            type="checkbox"
+             [value]="item" 
+             [(ngModel)]="item.checked"
+             (click)="setCheckbox(item, $index)"
+            >
+        }   <br>
+        @for (item of priceArray; track $index) {
+             | {{item.checked}}  | {{item.price}} 
+            <input
+            type="checkbox"
+             [value]="item" 
+             [(ngModel)]="item.checked"
+             (click)="setCheckbox(item, $index)"
+            >
+        }
+    </div>
+    <div class="col-9">
+          @for (item of productArray | filter:'gender':'Women' ;track $index;) {
+          <!-- @for (item of productArray;track $index;) {  -->
+            <p> {{item.name}} || {{item.color}} || {{item.price}} || {{item.type}} || {{item.gender}} </p>
+            }
+    </div>
+    </div>
+
+    <!-- https://mytechnetknowhows.wordpress.com/2017/02/18/angular-2-pipes-passing-multiple-filters-to-pipes/ 
+    
+    https://stackblitz.com/edit/angular-checkbox-form-array?file=app%2Fselect-value-binding-example.html
+    -->

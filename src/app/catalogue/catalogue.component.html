@@ -1,0 +1,76 @@
+<p>catalogue works!</p>
+ <a [routerLink]="['home']">Home</a>
+ <a [routerLink]="['product']">product</a>
+
+<div class="row">
+   <div class="col-4">
+      @for (item of filterList; track $index) {
+         <div class="form-check">
+            
+            <input
+            type="checkbox"
+            value="{{item.id}}"
+            (change)="onChange($event)"
+          />
+            <!-- <input class="form-check-input"
+              type="checkbox"(change)="getSelectedCheckbox($event, item)"> -->
+              <!-- (click)="filterData(item)" -->
+              <label class="form-check-label">{{$index + 1}}  {{item.name}}</label>
+            </div>
+           
+         }
+      
+   </div>
+   <div class="col-8">
+      @for (item of productArray; track $index) {
+         <div>  {{item.name}} || {{item.color}} || {{item.price}} || {{item.type}} || {{item.gender}} 
+            <!-- <br>
+            <span> ********************************************* </span>    -->
+         </div>
+      }
+      <!-- <pre>{{ this.catD| json }}</pre> -->
+
+
+   </div>
+</div>
+
+
+
+ 
+
+<!-- @for (item of colors; track $index) {
+ <div class="form-check">
+      <input class="form-check-input"
+      type="checkbox"
+     
+      (change)="getSelectedCheckbox($event, item)"
+     
+      >
+      <!-- (click)="filterData(item)" --
+      <label class="form-check-label">{{$index + 1}}  {{item}}</label>
+    </div>
+   
+ } -->
+
+
+ <!-- @for (item of gender; track $index) {
+   <div class="form-check">
+        <input class="form-check-input" type="checkbox" (change)="getSelectedCheckbox(item)">
+        <label class="form-check-label">{{item}}</label>
+      </div>
+     
+   }
+   @for (item of type; track $index) {
+      <div class="form-check">
+           <input class="form-check-input" type="checkbox" (change)="getSelectedCheckbox(item)">
+           <label class="form-check-label">{{item}}</label>
+         </div>
+        
+      }
+      @for (item of price; track $index) {
+         <div class="form-check">
+              <input class="form-check-input" type="checkbox" (change)="getSelectedCheckbox(item)">
+              <label class="form-check-label">{{item}}</label>
+            </div>
+           
+         } -->
